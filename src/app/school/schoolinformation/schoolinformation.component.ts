@@ -10,7 +10,9 @@ import { SchoolsListService } from 'src/app/schoolsList.serivce';
 })
 export class SchoolinformationComponent {
 
-  // concept : i am going to take the help of activated router and based on the activated Router
+  // concept : i am going to take the help of activated router
+  // and based on the activated Router
+
   // i will subscribe the paramter(schoolID);
 
 
@@ -22,13 +24,43 @@ export class SchoolinformationComponent {
   filterdSchoolList:any = [];
   ngOnInit(){
      this.activateRouter.params.subscribe((response)=>{
-        console.log(response);
+        console.log(response);   //xyz123
         this.filterdSchoolList =  
+        
         this.schoolService.getSchoolsList().
         filter((x)=> x.ID === response["any"]);
 
         console.log(this.router.url);
      })
+
+
+    // this.activateRouter.queryParams.subscribe((response)=>{
+
+    //       // {SchoolID : 'xyz'}\
+    //      //response.SchoolID
+    //      //response["SchoolID']
+    //       console.log(response);   //xyz123
+    //       this.filterdSchoolList =  
+          
+    //       this.schoolService.getSchoolsList().
+    //       filter((x)=> x.ID === response["SchoolID"]);
+  
+    //       console.log(this.router.url);
+    //    })
+
+
+    // this.activateRouter.fragment.subscribe((response)=>{
+    //       // response  is now  xyz123
+    //       //http://localhost:4200/schoolinformation#xyz123
+    //       console.log(response);   //xyz123
+    //       this.filterdSchoolList =  
+    //        this.schoolService.getSchoolsList().
+    //       filter((x)=> x.ID === response);
+    //       console.log(this.router.url);
+    //    })
+
+
+
 
   }
 

@@ -18,10 +18,24 @@
                     not the google.com -->
                     <!-- <td><a routerLink="___/schoolinformation">..more</a></td> -->
 
-                    <!-- <td><a [routerLink]="['/schoolinformation',item.Name]">..more</a></td> -->
+                    <!-- <td><a [routerLink]="['schoolinformation',item.Name]">..more</a></td> -->
                     <td><a style="cursor:pointer;color:blue" (click)="routerNavigation(item.ID)">..more</a></td>
+
+                    <!-- //locahost:4200/customer?CustomerID=1  -->
+                    <!-- <td><a [routerLink]="['/schoolinformation']" [queryParams]="{'SchoolID': item.ID}">..more</a></td> -->
+
+                     <!-- <td><a style="cursor:pointer;color:blue" (click)="routerNavigation(item.ID)">..more</a></td> -->
+
+                     <!-- localhost:4200/customer#1  -->
+                     <!-- http://localhost:4200/schoolinformation#xyz123 -->
+                     <!-- <td><a [routerLink]="['/schoolinformation']" [fragment]="item.ID" >..more</a></td> -->
 
             </tr>
         </tbody>
     </table>
+    <hr>
+    
+    <router-outlet></router-outlet>   
+     <!-- //schoolinformation  parameter -->
+
 </div>

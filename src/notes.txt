@@ -10,9 +10,9 @@ i have created the schooldetails   --> data
 
 
 1.  localhost:4200/customers
-2.  localhost:4200/customers/1
-3.  locahost:4200/customer?CustomerID=1
-4.  localhost:4200/customer#1
+2.  localhost:4200/customers/1             // pass the id based on the param
+3.  locahost:4200/customer?CustomerID=1    // Querystirng. we can pass the data ..
+4.  localhost:4200/customer#1              // Fragment. we can pass the data ..
 
 
 

@@ -23,7 +23,12 @@ export class SchoolComponent implements OnInit {
     // simple 1 line code..
     // based on the router we are navigating....
     console.log(this.router.url);
-    this.router.navigate(['schoolinformation', ID]);
+
+    //routerNavigation
+    this.router.navigate(["school/schoolinformation"]);
+    //this.router.navigate(['schoolinformation'], { queryParams : {'SchoolID':ID}});
+    //this.router.navigate(['schoolinformation'], { fragment : ID});
+
   }
 
 }
