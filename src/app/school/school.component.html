@@ -1,0 +1,27 @@
+<div style="margin:20px;">
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Id</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of schoolsList">
+                  <td>{{item.Name}}</td>
+                  <td>{{item.Location}}</td>
+                  <td>{{item.ID}}</td>
+                  <!-- <td><a href="https://google.com">..more</a></td> -->
+                  <!-- : whenever i click on more i want to navigate to the schoolinformtion page.
+                    not the google.com -->
+                    <!-- <td><a routerLink="___/schoolinformation">..more</a></td> -->
+
+                    <!-- <td><a [routerLink]="['/schoolinformation',item.Name]">..more</a></td> -->
+                    <td><a style="cursor:pointer;color:blue" (click)="routerNavigation(item.ID)">..more</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
