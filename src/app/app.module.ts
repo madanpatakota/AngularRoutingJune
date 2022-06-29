@@ -6,6 +6,12 @@ import { SchoolComponent } from './school/school.component';
 import { SchoolinformationComponent } from './school/schoolinformation/schoolinformation.component';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
+import { FormsModule}  from '@angular/forms'
+import { CanActivateGuardGuard } from './can-activate-guard.guard';
+
+
+
 
 // https://github.com/marketplace    -- ActivatedURL
 // https://github.com
@@ -18,13 +24,25 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 //http://localhost:4200/school/xyz123
 // Cannot match any routes. URL Segment: 'school/schoolinformation'
-const routes: Routes = [
+
+/// right now i have done parent level security
+//// i want to add the some more security to the child level also......
+const routes: Routes = [{path:'',component:LoginComponentComponent},
   {
     path: 'school',
     component: SchoolComponent,
+    canActivate : [CanActivateGuardGuard],
     children: [
       {
-        path: 'schoolinformation',
+        path: 'schoolinformation/:any',
+        component: SchoolinformationComponent,
+      },
+      {
+        path: 'schoolinformation1/:any',
+        component: SchoolinformationComponent,
+      },
+      {
+        path: 'schoolinformation2/:any',
         component: SchoolinformationComponent,
       },
     ],
@@ -44,7 +62,7 @@ const routes: Routes = [
     SchoolinformationComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, CommonModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, CommonModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })

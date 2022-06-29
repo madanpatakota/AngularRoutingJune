@@ -35,3 +35,25 @@ i have created the schooldetails   --> data
 
 
 
+Wheather can i activate the router based on the request?
+1.  localhost:4200/school
+
+so if you want to activate the router then you have to check that guy is a logged the application or not?
+
+
+1. I want to store the data into the browser . so that whenever i try to open the   localhost:4200/school then
+ i am going to cross-verify from the browser weather the guy logged or not ...
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
