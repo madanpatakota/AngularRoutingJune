@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { canDeacativateSchoolComponent } from '../can-deactivate.guard';
 import { SchoolsListService } from '../schoolsList.serivce';
 
 @Component({
@@ -7,15 +8,38 @@ import { SchoolsListService } from '../schoolsList.serivce';
   templateUrl: './school.component.html',
   styleUrls: ['./school.component.css']
 })
-export class SchoolComponent implements OnInit {
+export class SchoolComponent implements OnInit ,
+ canDeacativateSchoolComponent {
 
-  constructor(public Schoolservice:SchoolsListService , private router:Router) { }
+  constructor(public Schoolservice:SchoolsListService , private router:Router , private activateRoute:ActivatedRoute) { }
 
   schoolsList:any = [];
+  Comments = "";
+
+  canDeactivate(){
+     if( this.Comments == ""){
+          return window.confirm("Please check the data");
+     }
+     return true;
+  }
+
+  Submit(){
+
+  }
+
   //schoolsList = [{Id:1, Name:"" , Location:"" }]
   ngOnInit(): void {
     this.schoolsList = this.Schoolservice.getSchoolsList();
     console.log(this.schoolsList);
+
+    //data:["Getting data from Route"],
+    this.activateRoute.data.subscribe((x)=>{
+         console.log(x);
+    })
+
+    // this.activateRoute.data.subscribe(())
+
+
   }
 
   routerNavigation(ID:any){

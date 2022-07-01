@@ -16,6 +16,7 @@ export class CanActivateGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
+      console.log("can activate loaded");
     
       if(localStorage.getItem("email") == "madan@gmail.com" && 
          localStorage.getItem("password") == "madan"){

@@ -9,6 +9,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { FormsModule}  from '@angular/forms'
 import { CanActivateGuardGuard } from './can-activate-guard.guard';
+import { canActivateChild } from './can-activate-child.guard';
+import { canDeactivateGuard } from './can-deactivate.guard';
+import { RolesResolve } from './Roles.resolve';
 
 
 
@@ -27,11 +30,16 @@ import { CanActivateGuardGuard } from './can-activate-guard.guard';
 
 /// right now i have done parent level security
 //// i want to add the some more security to the child level also......
-const routes: Routes = [{path:'',component:LoginComponentComponent},
+const routes: Routes = [
+  {path:'',component:LoginComponentComponent},
   {
     path: 'school',
     component: SchoolComponent,
     canActivate : [CanActivateGuardGuard],
+    canActivateChild:[canActivateChild],
+    data:["Getting data from Route"],
+    resolve:{ 'CompanyRoles' : RolesResolve },
+    //canDeactivate:[canDeactivateGuard],
     children: [
       {
         path: 'schoolinformation/:any',
@@ -45,7 +53,7 @@ const routes: Routes = [{path:'',component:LoginComponentComponent},
         path: 'schoolinformation2/:any',
         component: SchoolinformationComponent,
       },
-    ],
+    ]
   },
   // { path:'schoolinformation' , component:SchoolinformationComponent},
   { path: 'not-found', component: NotFoundComponent },
