@@ -13,9 +13,9 @@ export class canActivateChild implements CanActivateChild {
         console.log("canactivate child has loaded");
 
 
-        //some condtions 
-        // Case study 
-           //1. Create the service UsersList service...
+          // some condtions 
+          // Case study 
+          // 1. Create the service UsersList service...
 
 
            //2. incase only give the access for one particular user 
